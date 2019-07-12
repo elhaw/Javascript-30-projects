@@ -76,22 +76,18 @@
       audio.play();
       key.classList.add("playing");
   });
+
+
   //select all transitiond elements
-  function removeTransition(e) {
-    if(e !== 'transform') return;
-    this.classList.remove('playing')
-    console.log(e)
-  }
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend',function removeTransition(e) {
 
-  const keys = document.querySelectorAll('.key')
-  keys.forEach((key)=>{
-        key.addEventListener('transitionend',removeTransition)
-  })
+            if (e.propertyName !== 'transform') return;
+            this.classList.remove('playing');
 
+  }));
  }
 
 </script>
-
-
 </body>
 </html>
