@@ -1,47 +1,72 @@
-let time = new Date();
-let hours  = time.getHours();
-let minutes  = time.getMinutes();
-let seconds  = time.getSeconds();
+// gettong time in hours, minutes, seconds
+const time = new Date();
+let hours = time.getHours();
+let minutes = time.getMinutes();
+let seconds = time.getSeconds();
 
 
+// select clockhands
 const secondsHand = document.querySelector('.second-hand')
 const minutesHand = document.querySelector('.min-hand')
 const hoursHand = document.querySelector('.hour-hand')
 
-seconds  = (seconds ) % 60 ;
-secondsDegree = ((seconds * 6) % 360) + 90;
+/*
+    Initialize time
+    Adding offset 90 so that time initialized at 00:00:00
+*/
+
+// map seconds to degree
+secondsDegree = ((seconds * 6)) + 90;
 secondsHand.style.transform = `rotate(${secondsDegree}deg)`;
 
+// map minutes to degree
 
-minutes  = (minutes) % 60 ;
-minutesDegree = ((minutes * 6) % 360) + 90;
+minutesDegree = ((minutes * 6)) + 90;
 minutesHand.style.transform = `rotate(${minutesDegree}deg)`;
 
-
-hours  = (hours) % 24 ;
-hoursHandDegree = ((hours * 15) % 360) + 90;
+// map hours to degree
+hoursHandDegree = ((hours * 15)) + 90;
 hoursHand.style.transform = `rotate(${hoursHandDegree}deg)`;
 
-setInterval(function(){
 
-    seconds  = (seconds + 1) % 60 ;
-    secondsDegree = ((seconds * 6) % 360) + 90;
+/*  Initilize time end */
+
+/* 
+
+    Increase seconds count every 1 sec till it 
+    for the seconds hand
+*/
+
+setInterval(function () {
+    seconds = (seconds + 1);
+    secondsDegree = ((seconds * 6)) + 90;
     secondsHand.style.transform = `rotate(${secondsDegree}deg)`;
+}, 1000)
 
-},1000)
+/* 
 
-setInterval(function () { 
+    Increase seconds count every 1 min = (((60 * 1000 ms))) till it 
+    for the mintes hand
+*/
 
-    minutes  = (minutes + 1) % 60 ;
-    minutesDegree = ((minutes * 6) % 360) + 90;
+setInterval(function () {
+
+    minutes = (minutes + 1);
+    minutesDegree = ((minutes * 6)) + 90;
     minutesHand.style.transform = `rotate(${minutesDegree}deg)`;
     console.log(minutes)
-},60000)
+}, 60 * 1000)
 
-setInterval(function () { 
+/* 
 
-    hours  = (hours + 1) % 24 ;
-    hoursHandDegree = ((hours * 15) % 360) + 90;
+    Increase hours count every 1hour((( 1h = 60 min = 60 * 60 * 60 ms))) sec till it 
+    for the hours hand
+*/
+
+setInterval(function () {
+
+    hours = (hours + 1);
+    hoursHandDegree = ((hours * 15)) + 90;
     hoursHand.style.transform = `rotate(${hoursHandDegree}deg)`;
     console.log(hours)
-},3600000)
+}, 60 * 60 * 1000)
