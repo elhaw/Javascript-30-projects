@@ -1,18 +1,18 @@
-// gettong time in hours, minutes, seconds
+// getting time in hours, minutes, seconds
 const time = new Date();
 let hours = time.getHours();
 let minutes = time.getMinutes();
 let seconds = time.getSeconds();
 
 
-// select clockhands
+// select clock hands
 const secondsHand = document.querySelector('.second-hand')
 const minutesHand = document.querySelector('.min-hand')
 const hoursHand = document.querySelector('.hour-hand')
 
 /*
     Initialize time
-    Adding offset 90 so that time initialized at 00:00:00
+    Adding offset value 90 so that time initialized at 00:00:00
 */
 
 // map seconds to degree
@@ -28,8 +28,6 @@ minutesHand.style.transform = `rotate(${minutesDegree}deg)`;
 hoursHandDegree = ((hours * 15)) + 90;
 hoursHand.style.transform = `rotate(${hoursHandDegree}deg)`;
 
-
-/*  Initilize time end */
 
 /* 
 
