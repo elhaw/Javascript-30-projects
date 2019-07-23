@@ -95,6 +95,11 @@ body {
 .panel p.open-active {
   transform: translateY(0px);
 }
+
+.panel.open-active {
+  flex:5;
+}
+
 .panel.open {
   font-size: 40px;
 }
