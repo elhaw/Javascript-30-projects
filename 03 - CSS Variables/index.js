@@ -9,7 +9,7 @@ const base = document.querySelector('#base');
 //the image at which style will be applied
 const targtedImage = document.querySelector('img')
 
-
+targtedImage.style.background = `#${base.value}`
 /*
     call back function  for updating 
     vlaues when cnhange occurs
