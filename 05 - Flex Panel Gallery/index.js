@@ -4,10 +4,17 @@ window.onload = ()=>{
 
     allPanels.forEach((panel)=>{
         panel.addEventListener('click',()=>{
-            const allP = panel;
-            console.log(allP)
+            
            panel.classList.toggle('open-active')
         })
     })
 
+    const transitionedElements = document.querySelectorAll('.panel')
+    transitionedElements.forEach((element)=>{
+        element.addEventListener('transitionend',(e)=>{
+            element.children[0].classList.toggle('open-active')
+            element.children[2].classList.toggle('open-active')
+        })  
+
+    })
 }
